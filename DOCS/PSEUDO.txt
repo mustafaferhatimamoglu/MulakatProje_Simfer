@@ -1,9 +1,0 @@
-Ýsterler:
--SQL (MsSQL kullanýlacak)
--RandomDataGenerator.Net >Random kiþi okul þehir doðum tarihi üretmek için kullanýlacak
-
-Açýlýþ
--Tablolarý oluþtur
--Kök insanlarý yerleþtir
--random insanlarý oluþtur
--okul bilgileri oluþtur
