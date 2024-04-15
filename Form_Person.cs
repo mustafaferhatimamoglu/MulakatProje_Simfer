@@ -12,7 +12,7 @@ namespace MulakatProje_Simfer
 {
     public partial class Form_Person : Form
     {
-        int? PersonID = null;
+        //int? PersonID = null;
         Operations.DB.Person person;
         List<Operations.DB.Person> childList;
         public Form_Person(int r_PersonID)
@@ -30,6 +30,12 @@ namespace MulakatProje_Simfer
             foreach (var child in childList) { LB_Children.Items.Add(child.Name); }
 
             dataGridView1.DataSource = Operations.Database.SQL_query("select * from TBL_Person");
+
+            var dt_education = Operations.Database.SQL_query("select * from TBL_EDUCATION where [FID] = " + person.ID);
+            foreach(DataRow fe in dt_education.Rows)
+            {
+                LB_Educations.Items.Add(fe["SchoolName"].ToString());
+            }
 
         }
         private void Form_Person_Load(object sender, EventArgs e)
@@ -72,7 +78,8 @@ namespace MulakatProje_Simfer
 
         private void Button_EditEducations_Click(object sender, EventArgs e)
         {
-
+            var f = new Form_Education(person.ID);
+            f.ShowDialog();
         }
 
 
